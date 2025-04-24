@@ -1,7 +1,7 @@
 
 CC := g++
 CFLAGS := -O2 -Wall -Wextra -Wno-maybe-uninitialized -std=c++20
-SRC_FOLDER := ./source
+SRC_FOLDER := ./src
 BIN_FOLDER := ./bin
 INC_FOLDER := ./include
 IFLAGS := -I./include/
@@ -19,7 +19,7 @@ main: ./main.cpp $(SOURCES) $(BINARIES)
 $(BIN_FOLDER):
 	mkdir $(BIN_FOLDER)
 
-$(BIN_FOLDER)/libpolynomial.a: $(SRC_FOLDER)/polynomial.cpp $(INC_FOLDER)/polynomial.hpp
+$(BIN_FOLDER)/libvectorImpl.a: $(SRC_FOLDER)/vectorImpl.cpp $(INC_FOLDER)/vectorImpl.hpp
 	if [ -d $(BIN_FOLDER) ]; then : ; else mkdir $(BIN_FOLDER); fi
 	rm -f $@
 	$(CC) $(CFLAGS) $< -c -o $(basename $@).o $(IFLAGS)
