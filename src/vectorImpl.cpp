@@ -36,7 +36,7 @@ template <typename T>
 TetoVector<T>::TetoVector(std::initializer_list<T> init) : _size{init.size()}, _capacity{init.size()}{
     _data = new T[_capacity];
     std::size_t i = 0;
-    for(const &T item : init)
+    for(const T& item : init)
     {
         _data[i++] = item;
     }
