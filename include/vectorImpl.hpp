@@ -11,12 +11,23 @@ private:
 
 public:
     TetoVector() = default;
-    TetoVector(std::size_t size);
-    TetoVector(std::size_t size, const T& value);
+    explicit TetoVector(std::size_t size);
+    TetoVector(std::size_t size, const T &value);
     TetoVector(const TetoVector &obj);
     TetoVector(TetoVector &&obj) noexcept;
     TetoVector(std::initializer_list<T> init);
     ~TetoVector();
+
+    TetoVector& operator=(const TetoVector& obj);
+    TetoVector& operator=(TetoVector&& obj) noexcept;
+    TetoVector& operator=(std::initializer_list<T> init);
+
+    T& operator[](std::size_t index);
+    T& at(std::size_t index);
+    std::size_t size() const;
+    std::size_t capacity() const;
+    bool empty() const;
+
 
     class Iterator
     {
@@ -24,9 +35,22 @@ public:
         T *ptr_;
 
     public:
+        explicit Iterator(T *ptr) : ptr_(ptr) {}
         Iterator operator++();
         Iterator operator++(int);
         Iterator operator--();
         Iterator operator--(int);
+        Iterator operator+(std::size_t n) const;
+        Iterator operator-(std::size_t n) const;
+        bool operator==(const Iterator& obj) const;
+        bool operator!=(const Iterator& obj) const;
+        bool operator>(const Iterator& obj) const;
+        bool operator<(const Iterator& obj) const;
+        bool operator<=(const Iterator& obj) const;
+        bool operator>=(const Iterator& obj) const;
+
+        Iterator begin();
+        Iterator end();
+        
     };
 };
