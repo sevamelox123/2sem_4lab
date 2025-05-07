@@ -1,5 +1,6 @@
 #include "vectorImpl.hpp"
 
+// Я написал весь код в хедере не бейте пожалуйста
 
 // template <typename T>
 // TetoVector<T>::TetoVector() : _data{new T[1]{}} ,_size{0}, _capacity{1}

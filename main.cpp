@@ -22,12 +22,14 @@ int main() {
 
     // std::cout << *(v3.end()) << std::endl;
 
-    v3.at(4) = 5;
+    // v3.at(4) = 5;
 
     for (auto it = v3.begin();it != v3.end();it++) {
         std::cout << *it << " ";
     }
     std::cout << std::endl;
+
+    std::cout << v3 << std::endl;
 
     // std::cout << "v1: " << v1 << std::endl;
     // std::cout << "v1 size: " << v1.size() << ", capacity: " << v1.capacity() << std::endl;
